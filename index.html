@@ -1,0 +1,586 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" lang="en" xml:lang="en">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W885SSF');</script>
+<!-- End Google Tag Manager -->
+
+<!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+              ___          ___         ___          ___          ___          ___      ___               
+      ___    /__/\        /  /\       /  /\        /  /\        /  /\        /  /\    /  /\        ___   
+     /  /\   \  \:\      /  /::\     /  /:/_      /  /:/_      /  /:/_      /  /::\  /  /::\      /  /\  
+    /  /:/    \__\:\    /  /:/\:\   /  /:/ /\    /  /:/ /\    /  /:/ /\    /  /:/\:\/  /:/\:\    /  /:/  
+   /  /:/ ___ /  /::\  /  /:/~/:/  /  /:/ /:/_  /  /:/ /:/_  /  /:/ /::\  /  /:/~/:/  /:/  \:\  /  /:/   
+  /  /::\/__/\  /:/\:\/__/:/ /:/__/__/:/ /:/ /\/__/:/ /:/ /\/__/:/ /:/\:\/__/:/ /:/__/:/ \__\:\/  /::\   
+ /__/:/\:\  \:\/:/__\/\  \:\/:::::|  \:\/:/ /:/\  \:\/:/ /:/\  \:\/:/~/:/\  \:\/:/\  \:\ /  /:/__/:/\:\  
+ \__\/  \:\  \::/      \  \::/~~~~ \  \::/ /:/  \  \::/ /:/  \  \::/ /:/  \  \::/  \  \:\  /:/\__\/  \:\ 
+      \  \:\  \:\       \  \:\      \  \:\/:/    \  \:\/:/    \__\/ /:/    \  \:\   \  \:\/:/      \  \:\
+       \__\/\  \:\       \  \:\      \  \::/      \  \::/       /__/:/      \  \:\   \  \::/        \__\/
+             \__\/        \__\/       \__\/        \__\/        \__\/        \__\/    \__\/              
+
+
+
+      This framework and functionality is based on this: https://github.com/vlandham/scroll_demo
+      For a full rundown of the theory behind it, see: http://vallandingham.me/scroller.html
+      We have tweaked to make it populoate more dynamically, and include interactive goodies like
+      WebGL, SVG, etc. in the <vis> div created for the original interactive it was intended for.
+
+     |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+ 
+ <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+<meta name="Description" content="Threespot Media LLC | Browser-Based Storytelling">
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+<title>Threespot Media LLC | Browser-Based Storytelling</title>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>  
+	<link rel="stylesheet" type="text/css" href="css/scrollyer_storytelling.css"/>
+  <script type="text/javascript" src="js/scrollyer_content.js"></script>
+  <link rel="stylesheet" type="text/css" media="screen,print" href="css/paint.css" />
+ 
+
+ 
+  <script type="text/javascript">
+     function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+    }
+  </script>
+
+
+
+
+ <style type="text/css">
+    
+#cbg {
+margin: 0;
+padding:0;
+ z-index:9;
+top:0;
+left:0;
+    display: inline-block;
+ }
+
+
+</style>
+ 
+
+
+</head>
+
+ <body> 
+
+ <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-W885SSF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||| VIDEO ELEMENT ACTIVATE IN daddy .js file |||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||| Uncomment to use vid & make changes to function  |||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||  
+     |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+ <video autoplay playsinline muted loop id="bgvid7" class="videobig" style="display: none;">
+     <source src="images/mia_x_nike_sb.webm" type="video/webm">
+     <source src="images/mia_x_nike_sb.mp4" type="video/mp4">
+</video>
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||| SITE FURNITURE |||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||  LOADER |||||||||||||||||||||||||||||||||||| -->
+
+<div id="play">
+  <div id="loader">
+  </div>
+</div>
+<div id="playB" style="display: none;">
+</div>
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<div id="threespotinfo" class="bgbg" style="display:none; " onclick="toggle_visibility('threespotinfo');toggle_visibility('closeB');toggle_visibility('CanvasImgBB');">
+<span class="abouttitle">Our mission is</span>
+<br />
+<div class="revolution"><img src="images/revolution.png" border="0" alt="revolution" width="100%"></div>
+<br />
+<br />
+ <span class="aboutbody">We’ve been in business since 1999 and along the way we found something out about ourselves. That <strong>we value doing work that matters</strong> more than awards, accolades, or cold hard cash. Since that day forward we have chosen a path few agencies take. To use our time and talents to make a difference. All day, every day.
+<br />
+
+ 
+ 
+ 
+ 
+  <div class="Billboard-content l-wrap">
+    <div class="Billboard-links">
+      <a class="Billboard-cta Button Button--yellow bg-grunge--mask" href="https://www.threespot.com/our-work" target="_blank">Our Work</a>
+      <a class="Billboard-cta Button Button--yellow bg-grunge--mask" href="https://www.threespot.com/about-us" target="_blank">About Us</a>
+    </div>
+  </div>
+  
+  
+  
+   
+
+</span>
+
+
+</div>
+<div id='spotsabout'><img src="images/threedots3.png" style="display: inline-block; "></div>
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| BOTTOM LEFT DIV ||||||||||||||||||||||||||||||||| 
+ <div id="output">
+ </div>
+ |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+  
+  
+
+      <div id="sequence" style="display:none;"></div>
+      <div id="chart" style="display:none;">
+      </div>
+
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- ||||| center of sgarburst graphic |||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+<div id="explanation" style="visibility: hidden;">
+<span id="percentage"></span><br/>
+of visits begin with this sequence of pages
+</div>
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+ <img src='data:image/png;base64,R0lGODlhFAAUAIAAAP///wAAACH5BAEAAAAALAAAAAAUABQAAAIRhI+py+0Po5y02ouz3rz7rxUAOw=='
+                 id="CanvasImg" style="visibility: hidden; " />
+ 
+
+
+  <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+ <img src='data:image/png;base64,R0lGODlhFAAUAIAAAP///wAAACH5BAEAAAAALAAAAAAUABQAAAIRhI+py+0Po5y02ouz3rz7rxUAOw=='
+                 id="CanvasImgB" style="display: none; " />
+ 
+
+
+
+
+  <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+ <img src='data:image/png;base64,R0lGODlhFAAUAIAAAP///wAAACH5BAEAAAAALAAAAAAUABQAAAIRhI+py+0Po5y02ouz3rz7rxUAOw=='
+                 id="CanvasImgBB" style="display: none; " />
+ 
+
+
+  <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+ <img src='data:image/png;base64,R0lGODlhFAAUAIAAAP///wAAACH5BAEAAAAALAAAAAAUABQAAAIRhI+py+0Po5y02ouz3rz7rxUAOw=='
+                 id="CanvasImgA" style="visibility: hidden; " />
+ 
+
+
+  <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+ <img src='data:image/png;base64,R0lGODlhFAAUAIAAAP///wAAACH5BAEAAAAALAAAAAAUABQAAAIRhI+py+0Po5y02ouz3rz7rxUAOw=='
+                 id="CanvasImgBG" style="visibility: hidden; " />
+ 
+
+
+ 
+  
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| TABLE OF CONTENTS ||||||||||||||||||||||||||||||| -->
+<div id="toc" onclick="toggle_visibility('toc');toggle_visibility('close');toggle_visibility('menu');"> 
+<br />
+<img src="images/3DOTS.png" border="0" style="display: block;position: absolute;top: 1em; ">
+<br />
+<br />
+A showcase of browser-based storytelling elements. Scroll to explore these standalone HTML5 solutions created through combinations of D3, WebGL, WebVR, Canvas and SVG in JavaScript.
+
+
+<!-- |||||||||||||||||||||||||||||||||||||||
+
+<ol>
+<li><a href=#>We Fight Status Quo</a></li>
+
+||||||||||||||||||||||| -->
+
+
+<script type="text/javascript">
+ 
+
+var pp = 1;
+var ppc = (pp+1);
+var body = "";
+
+while (titles[pp]) {
+ /////////////   text += heads[h] + "<br>";
+    
+////////body+= '<li><!-- ### '+pp+' ### --><a href=#j'+pp+'>'+titles[pp] + '</a><!-- ######### --></li>';
+
+
+///     console.log(p);
+///     console.log('html'+p);
+////     console.log('con'+p);
+
+    pp++;
+    ppc++
+}
+
+///////////////body+= '</ol>';
+
+document.write(body);
+
+
+</script>
+
+
+
+
+
+
+</div>
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| This is where the content lives ||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| Main container div |||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| Graphic div is the parent for scrolling ||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| Containers have bgs and top bars |||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- ||||| Section contains steps which are the scrolling text |||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+
+<div class="container" id="container">
+
+
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| TOP LEFT LOGO ||||||||||||||||||||||||||||||||||| 
+<div id="logo"><img src="images/3spotbrush3.png" onclick="toggle_visibility('threespotinfo');toggle_visibility('closeB');toggle_visibility('playB');" style="cursor: pointer;"></div>
+-->
+<div id="logo"><a href="#" onclick="toggle_visibility('threespotinfo');toggle_visibility('closeB');toggle_visibility('CanvasImgBB');"><img src="images/3spotbrush3.png" style="cursor: pointer;" border=0 alt="Threespot Media LLC"></a></div>
+
+
+
+
+<div id='spots'><img src="images/SprayDots.png" style="cursor: pointer;"></div>
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<div id='threespotA'><img src="images/301a.png" style="cursor: pointer; "></div>
+<div id='threespotB'><img src="images/302a.png" style="cursor: pointer; "></div>
+<div id='threespotC'><img src="images/303a.png" style="cursor: pointer; "></div>
+<div id='threespotD'><img src="images/304a.png" style="cursor: pointer; "></div>
+<div id="strokepaint"></div>
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| TOP RIGHT MENU |||||||||||||||||||||||||||||||||| -->
+<div id="menu" style="cursor: pointer; display: none;">
+    <img src="images/3menub.png" alt="Threespot" border="0" align="right" onclick="toggle_visibility('toc');toggle_visibility('close');">
+</div>
+<div id="close" style="cursor: pointer;display: none;">
+    <img src="images/close.png" alt="Threespot" border="0" align="right" onclick="toggle_visibility('toc');toggle_visibility('close');">
+</div>
+<div id="closeB" style="cursor: pointer;display: none;">
+    <img src="images/close.png" alt="Threespot" border="0" align="right" onclick="toggle_visibility('threespotinfo');toggle_visibility('closeB');toggle_visibility('CanvasImgBB');">
+</div>
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+<div id="graphic">
+
+
+
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| add a static title container |||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+<div id=container0>
+<div id=topbar0></div><canvas id="cbg"></canvas>
+<div class=bgbg id=big0>
+
+
+</div></div>
+
+  
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| OUTPUT THE REST OF THE SLIDES ||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| FIND THE CONTENT IN content.js |||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| CALCULATES ARRAY OF HEADS FOR OUTPUT |||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+
+<script type="text/javascript">
+
+var h = 1;
+var text = "";
+
+while (heads[h]) {
+ /////////////   text += heads[h] + "<br>";
+
+///////////////text+= '<div id=container'+h+'><div id=topbar>'+heads[h] + '</div><div id=big'+h+' class=bgbg style=background-image:url('+h+'.jpg); ></div></div>';
+
+text+= '<div id=container'+h+'><a name=j'+h+'></a><div id=topbar><span class=copyblock>'+heads[h] + '</span></div><div id=big'+h+' class=bgbg></div></div>';
+
+    h++;
+}
+
+document.write(text);
+
+
+</script>
+
+
+
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+
+
+
+<div id="sections">
+<div id="strokepaint"></div>
+
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| add a static step container ||||||||||||||||||||| -->
+<!-- |||||||||||| the title slide with scroll prompt |||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+
+<!-- ### 0 ### -->
+<section class="step" style="background:none !important; ">
+<br />
+<br />
+<a name="j0"></a>
+<div class="titleopener">
+We Fight Status Quo<div id="stroke"><!-- <img src="images/strikesm.png" border="0" alt="revolution"> --></div>
+<!-- <p class="divider"></p> -->
+</div>
+<span class="introbody">Threespot is an independent digital agency hell-bent on helping those, and only those, who are committed to helping others. We believe that ideas make the world go around.</span>    
+<span id="scrollimg">
+  <a href="#j0" style="background: none !important; z-index: 9999999; ">
+    <img src="images/scrollimg.png" border="0" alt="Scroll Down For More" style="text-align: center; ">
+  </a></span>
+</section>
+
+
+
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| OUTPUT THE REST OF THE STEPS |||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| FIND THE CONTENT IN content.js |||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| CALCULATES ARRAY OF TITLES FOR OUTPUT ||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+var p = 1;
+var pc = (p+1);
+var body = "";
+
+while (titles[p]) {
+ /////////////   text += heads[h] + "<br>";
+    
+body+= '<!-- ### '+p+' ### --><section class=step><div class=title>'+titles[p] + '<p class="divider"></p></div><div id=html'+p+' >'+contents[p]+'</div></section><!-- ######### -->';
+
+
+///     console.log(p);
+///     console.log('html'+p);
+////     console.log('con'+p);
+
+    p++;
+    pc++
+}
+
+
+document.write(body);
+
+
+</script>
+
+
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| CLose out the sections |||||||||||||||||||||||||| -->
+
+    </div>
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| The vis div that holds interactive goodies |||||| -->
+
+
+
+
+
+    <div id="vis"></div>
+ 
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| Close container and graphic ||||||||||||||||||||| -->
+
+ </div>
+</div>
+
+
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+
+ <script src="//d3js.org/d3.v3.min.js"></script>
+
+
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script type="text/javascript" src="js/queue.js"></script>
+<script type="text/javascript" src="js/scroller.js"></script>
+<script type="text/javascript" src="js/three.js"></script>
+<script type="text/javascript" src="js/CanvasRenderer.js"></script>
+<script type="text/javascript" src="js/Projector.js"></script>
+<script src="https://d3js.org/queue.v1.min.js"></script>
+<script type="text/javascript" src="js/04vr.js"></script>
+<script type="text/javascript" src="js/paintjs.js"></script>
+<script type="text/javascript" src="js/paint.js"></script>
+<script type="text/javascript" src="js/DeviceOrientationControls.js"></script>
+ <script type="text/javascript" src="js/lineswords.js"></script>
+
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| dormant interactive goodies |||||||||||||||||||||
+<script type="text/javascript" src="js/FlyControls.js"></script>
+<script type="text/javascript" src="js/topojson.v0.min.js"></script>
+     ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||  -->
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| Daddy JS file ||||||||||||||||||||||||||||||||||| -->
+
+<script src="js/scrollyer_storytelling.js"></script>
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- |||||||||||| Preloader ||||||||||||||||||||||||||||||||||||||| -->
+
+<div class="hidden">
+  <script type="text/javascript">
+    <!--//--><![CDATA[//><!--
+
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+ 
+      var images = new Array()
+      function preload() {
+        for (i = 0; i < preload.arguments.length; i++) {
+          images[i] = new Image()
+          images[i].src = preload.arguments[i]
+        }
+        
+          
+
+
+
+
+      }
+images.onload = notify();
+
+      function notify()  {
+
+        setTimeout(function(){ 
+
+          document.getElementById('play').style.display = 'none'; 
+ 
+ 
+        }, 3000);
+
+        
+}
+
+
+      preload(
+        "images/bg00.jpg",
+        "css/bg01.jpg",
+
+        "css/bg03.jpg",
+        "css/wildbeast40.jpg",
+        "css/wildbeast40s.jpg",
+        "images/scrollimg.png",
+         "images/icon_big_boot.png",
+        "images/SprayDots.png",
+        "images/3DOTS.png",
+        "images/threedots3.png",
+        "images/3spotbrush3.png",
+ 
+
+        "css/3spotgrunge.jpg",
+        "images/3spotgrunge.jpg",
+        "css/3spottocbg.jpg",
+
+        
+ 
+        "menu.png"
+
+      )
+    //--><!]]>
+  </script>
+</div>
+
+
+<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+
+
+
+
+</body>
+</html>
