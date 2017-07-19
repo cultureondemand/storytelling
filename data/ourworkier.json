@@ -1,0 +1,61 @@
+ 
+ {
+   "name": "SERVICES", "size": 4666,
+   "children": [
+     {
+     "name": "STRATEGY", "size": 2840,
+     "children": [
+      {"name": "Brand", "size": 1634},
+      {"name": "Content", "size": 1634},
+      {"name": "Digital", "size": 1634},
+      {"name": "Org Mangagement", "size": 1634},
+            {"name": "Personas", "size": 1634},
+            {"name": "User Journeys", "size": 1634},
+                  {"name": "Consulting", "size": 1634}
+
+
+     ]
+    },
+
+    {
+     "name": "DESIGN", "size": 2840,
+     "children": [
+       {"name": "Brand", "size": 1634},
+     {"name": "Wireframing", "size": 1634},
+      {"name": "Info Architecture", "size": 1634},
+      {"name": "Digital", "size": 1634},
+      {"name": "Data Viz", "size": 1634},
+      {"name": "Print", "size": 1634},
+      {"name": "Product", "size": 1634},
+      {"name": "Communications", "size": 1634},
+      {"name": "Advertising", "size": 1634}
+     ]
+    },
+    {
+     "name": "CONTENT & SOCIAL", "size": 2840,
+     "children": [
+      {"name": "Planning", "size": 1634},
+      {"name": "Copywriting", "size": 1634},
+      {"name": "Social Media", "size": 1634},
+      {"name": "Migration", "size": 1634},
+      {"name": "Staffing", "size": 1634},
+      {"name": "Analytics", "size": 1634},
+      {"name": "SEO", "size": 1634}
+     ]
+    },
+    {
+     "name": "TECHNOLOGY", "size": 2840,
+     "children": [
+      {"name": "Front-End", "size": 1634},
+      {"name": "Back-End", "size": 1634},
+      {"name": "Quality Assurance", "size": 1634},
+      {"name": "CMS", "size": 1634},
+      {"name": "Data Viz", "size": 1634},
+      {"name": "Ruby on Rails", "size": 1634},
+      {"name": "Consulting", "size": 1634},
+      {"name": "Web Apps", "size": 1634}
+     ]
+    }
+
+    ]
+    }
