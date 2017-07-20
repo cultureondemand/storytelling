@@ -6126,6 +6126,7 @@ var color = d3.scale.category20();
  //////   .data(data)
 ////////  .enter().append("circle")
  .attr(circleInitialAttrs)  // Get attributes from circleInitialAttrs var
+        .attr("class", "endcircles")
   
   //                 .attr("transform", "translate(" + d.x + "," + d.y + ")")
 /// 
