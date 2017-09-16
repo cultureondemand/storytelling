@@ -88,22 +88,7 @@ background-size:cover;
 }
 
 
-
-
-
-
 }
-
-
-
- 
- 
-
-
-
-
-
-
 
 
 
@@ -126,15 +111,10 @@ padding:0;
    display:inline-block;
   position:fixed;
   
-  
-  
-
   -webkit-user-select: none;  /* Chrome all / Safari all */
   -moz-user-select: none;     /* Firefox all */
   -ms-user-select: none;      /* IE 10+ */
   user-select: none;          /* Likely future */      
-
-
 
 }
 
@@ -156,12 +136,8 @@ background-size:cover;
   -moz-user-select: none;     /* Firefox all */
   -ms-user-select: none;      /* IE 10+ */
   user-select: none;          /* Likely future */      
-
- 
  
 }
-
-
 
 
 .container {
