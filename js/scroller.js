@@ -89,7 +89,7 @@ function scroller() {
    *
    */
   function position() {
-    var pos = window.pageYOffset - 366 - containerStart;
+    var pos = window.pageYOffset - 466 - containerStart;
     var sectionIndex = d3.bisect(sectionPositions, pos);
     sectionIndex = Math.min(sections.size() - 1, sectionIndex);
 
